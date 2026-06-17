@@ -1,0 +1,1741 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* =========================== */
+/* Card float animation (existing) */
+/* =========================== */
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================== */
+/* Apply float to service and feature cards */
+/* =========================== */
+#features .group,
+#services .group {
+  animation: float 7s ease-in-out infinite;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* =========================== */
+/* Stagger float animation delays for natural movement */
+/* =========================== */
+#features .group:nth-child(1),
+#services .group:nth-child(1) { animation-delay: 0s; }
+#features .group:nth-child(2),
+#services .group:nth-child(2) { animation-delay: 1.5s; }
+#features .group:nth-child(3),
+#services .group:nth-child(3) { animation-delay: 3s; }
+#features .group:nth-child(4),
+#services .group:nth-child(4) { animation-delay: 4.5s; }
+#features .group:nth-child(5),
+#services .group:nth-child(5) { animation-delay: 6s; }
+#features .group:nth-child(6),
+#services .group:nth-child(6) { animation-delay: 7.5s; }
+
+/* =========================== */
+/* Icon hover animation */
+/* =========================== */
+#features .group svg,
+#services .group svg {
+  transition: transform 0.3s, color 0.3s;
+}
+
+#features .group:hover svg,
+#services .group:hover svg {
+  transform: rotate(10deg) scale(1.2);
+}
+
+/* =========================== */
+/* Heading gradient animation */
+/* =========================== */
+#features .group h4,
+#services .group h4 {
+  background: linear-gradient(90deg, #f97316, #facc15);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: background-position 0.5s;
+  background-size: 200% 200%;
+}
+
+#features .group:hover h4,
+#services .group:hover h4 {
+  background-position: right center;
+}
+
+/* =========================== */
+/* Card shadow pulse on hover */
+/* =========================== */
+#features .group:hover,
+#services .group:hover {
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2), 0 5px 10px rgba(0,0,0,0.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= THEME TOGGLE RESPONSIVE ================= */
+
+/* Mobile (up to 639px) */
+@media (max-width: 639px) {
+
+  #theme-toggle + div {
+    width: 48px;
+    height: 24px;
+  }
+
+  #theme-toggle + div + div {
+    width: 20px;
+    height: 20px;
+  }
+
+  .fixed.top-6.right-6 {
+    top: 12px !important;
+    right: 12px !important;
+  }
+}
+
+/* Tablet (640px – 1023px) */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  .fixed.top-6.right-6 {
+    top: 16px !important;
+    right: 16px !important;
+  }
+}
+
+/* Laptop (1024px – 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  .fixed.top-6.right-6 {
+    top: 20px !important;
+    right: 20px !important;
+  }
+}
+
+/* Desktop (1280px and up) */
+@media (min-width: 1280px) {
+
+  .fixed.top-6.right-6 {
+    top: 24px !important;
+    right: 24px !important;
+  }
+}
+
+
+
+/* ================= HEADER RESPONSIVE ================= */
+
+/* Default: keep everything in one row */
+header .flex.items-center.w-full {
+  flex-wrap: nowrap;
+}
+
+/* ---------------- MOBILE (up to 639px) ---------------- */
+@media (max-width: 639px) {
+
+  /* Stack header sections vertically */
+  header .flex.items-center.w-full {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Reset negative margins */
+  header .-ml-6,
+  header .lg\:-ml-24 {
+    margin-left: 0 !important;
+  }
+
+  /* Logo resize */
+  header img {
+    height: 48px;
+  }
+
+  /* Menu links wrap properly */
+  header .whitespace-nowrap {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 0 !important;
+    text-align: center;
+  }
+
+  header a {
+    font-size: 13px;
+  }
+
+  #signsignupBtn,
+  #signoutBtn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* ---------------- TABLET (640px – 1023px) ---------------- */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  header .flex.items-center.w-full {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  header .-ml-6,
+  header .lg\:-ml-24 {
+    margin-left: 0 !important;
+  }
+
+  header .whitespace-nowrap {
+    gap: 16px;
+    margin-right: 0 !important;
+  }
+
+  header a {
+    font-size: 14px;
+  }
+}
+
+/* ---------------- LAPTOP (1024px – 1279px) ---------------- */
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  header .whitespace-nowrap {
+    gap: 20px;
+  }
+
+  header a {
+    font-size: 14px;
+  }
+}
+
+/* ---------------- DESKTOP (1280px and up) ---------------- */
+@media (min-width: 1280px) {
+
+  header .whitespace-nowrap {
+    gap: 24px;
+  }
+}
+
+
+
+
+
+/* ================= AUTH MODAL ================= */
+
+#authModal > div{
+  overflow:hidden;
+}
+
+/* ================= MODAL CONTAINER ================= */
+
+.auth-modal-container{
+  width:100%;
+  max-width:920px;
+  height:520px;
+  display:flex;
+  border-radius:24px;
+  overflow:hidden;
+  position:relative;
+}
+
+/* ================= CLOSE BUTTON ================= */
+
+#closeAuthModal{
+  position:absolute;
+  top:16px;
+  right:18px;
+  z-index:100;
+  cursor:pointer;
+}
+
+/* ================= WELCOME PANEL ================= */
+
+#welcomePanel{
+  width:45%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px;
+}
+
+/* ================= FORMS AREA ================= */
+
+.forms-area{
+  width:55%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+/* ================= SLIDER ================= */
+
+#formSlider{
+  display:flex;
+  width:300%;
+  height:100%;
+  transition:transform .6s ease;
+}
+
+/* ================= FORMS ================= */
+/* ================= FORMS ================= */
+
+#signin,
+#signup,
+#forgot{
+  width:100%;
+  flex-shrink:0;
+
+  display:flex;
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:center;
+
+  padding:30px;
+  height:100%;
+}
+/* ================= FORM WIDTH ================= */
+
+#signin form,
+#signup form,
+#forgot form{
+  width:100%;
+  max-width:340px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* ================= INPUT ================= */
+
+#signin input,
+#signup input,
+#forgot input{
+  width:100%;
+  padding:12px 14px;
+  border-radius:10px;
+  border:1px solid #d1d5db;
+  outline:none;
+  box-sizing:border-box;
+
+  background:white;
+  color:#111827;
+
+  /* added for smooth OTP/New Password reveal */
+  transition: max-height 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
+  max-height: 50px; /* default for visible inputs */
+  opacity: 1;
+  margin-top: 0;
+}
+
+/* ================= HIDDEN OTP / NEW PASSWORD INPUTS ================= */
+
+#forgot input[type="text"],
+#forgot input[type="password"] {
+  /* will be hidden initially by JS using class 'hidden' */
+  overflow: hidden;
+}
+
+/* ================= DARK MODE INPUT FIX ================= */
+
+.dark #signin input,
+.dark #signup input,
+.dark #forgot input{
+  background:#1f2937;
+  border:1px solid #374151;
+  color:white;
+}
+
+/* placeholder color */
+
+#signin input::placeholder,
+#signup input::placeholder,
+#forgot input::placeholder{
+  color:#9ca3af;
+}
+
+.dark #signin input::placeholder,
+.dark #signup input::placeholder,
+.dark #forgot input::placeholder{
+  color:#9ca3af;
+}
+
+/* ================= BUTTON ================= */
+
+#signin button,
+#signup button,
+#forgot button{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  font-weight:600;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:639px){
+
+  .auth-modal-container{
+    flex-direction:column;
+    height:auto;
+  }
+
+  #welcomePanel{
+    width:100%;
+    padding:30px;
+  }
+
+  .forms-area{
+    width:100%;
+  }
+
+}
+
+/* ================= TABLET ================= */
+
+@media (min-width:640px) and (max-width:1023px){
+
+  .auth-modal-container{
+    flex-direction:column;
+    height:auto;
+  }
+
+  #welcomePanel{
+    width:100%;
+  }
+
+  .forms-area{
+    width:100%;
+  }
+
+}
+
+/* ================= DESKTOP ================= */
+
+@media (min-width:1024px){
+
+  .auth-modal-container{
+    flex-direction:row;
+  }
+
+  #welcomePanel{
+    width:45%;
+  }
+
+  .forms-area{
+    width:55%;
+  }
+
+}
+
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 200%;
+    }
+}
+
+.animate-gradientMove {
+    animation: gradientMove 7s linear infinite;
+}
+
+/* =====================================================
+   GLOBAL FIX
+===================================================== */
+
+/* Prevent white background showing */
+body {
+  background-color: #0B1120;
+}
+
+/* Remove unwanted bottom spacing from wrapper */
+#homepagedetails {
+  padding-bottom: 0 !important;
+}
+
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+#homepagedetails > section:first-child {
+  min-height: 100vh;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 639px) {
+
+  #homepagedetails > section:first-child {
+    height: 100svh !important;
+    min-height: 100svh !important;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  #homepagedetails h2 {
+    font-size: 1.9rem !important;
+    line-height: 1.3 !important;
+  }
+
+  #homepagedetails p {
+    font-size: 0.95rem !important;
+  }
+
+  /* Stack hero buttons */
+  #homepagedetails .flex.justify-center {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  #homepagedetails .flex.justify-center a,
+  #homepagedetails .flex.justify-center button {
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}
+
+/* ---------------- TABLET ---------------- */
+@media (min-width: 640px) and (max-width: 1023px) {
+  #homepagedetails h2 {
+    font-size: 2.6rem !important;
+  }
+}
+
+/* ---------------- LAPTOP ---------------- */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  #homepagedetails h2 {
+    font-size: 3rem !important;
+  }
+}
+
+/* ---------------- LARGE DESKTOP ---------------- */
+@media (min-width: 1280px) {
+  #homepagedetails h2 {
+    font-size: 3.3rem !important;
+  }
+}
+
+
+/* =====================================================
+   VIDEO MODAL RESPONSIVE
+===================================================== */
+
+@media (max-width: 1023px) {
+
+  #video-overlay > div {
+    width: 92% !important;
+    height: auto !important;
+    padding: 20px;
+  }
+
+  #demo-video {
+    width: 100% !important;
+    height: 50vh !important;
+  }
+
+  #close-video {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  #demo-video {
+    height: 40vh !important;
+  }
+}
+
+/* Desktop compact video */
+@media (min-width: 1280px) {
+
+  #video-overlay > div {
+    width: 800px !important;
+    height: 500px !important;
+  }
+
+  #demo-video {
+    width: 720px !important;
+    height: 405px !important;
+  }
+}
+
+
+/* =====================================================
+   FEATURES SECTION
+===================================================== */
+
+/* Mobile */
+@media (max-width: 639px) {
+
+  #features {
+    padding-top: 70px !important;
+    padding-bottom: 70px !important;
+  }
+
+  #features .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #features h2 {
+    font-size: 1.8rem !important;
+  }
+
+  #features p {
+    font-size: 0.95rem;
+  }
+
+  #features .group {
+    padding: 20px !important;
+  }
+}
+
+/* Tablet */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  #features .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  #features h2 {
+    font-size: 2.2rem !important;
+  }
+}
+
+
+/* =====================================================
+   SERVICES SECTION (NO EXTRA GAP)
+===================================================== */
+
+/* Remove extra bottom space */
+#services {
+  padding-bottom: 40px !important;
+}
+
+/* Mobile */
+@media (max-width: 639px) {
+
+  #services {
+    padding-top: 70px !important;
+    padding-bottom: 40px !important;
+  }
+
+  #services .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #services h2 {
+    font-size: 1.8rem !important;
+  }
+
+  #services p {
+    font-size: 0.95rem;
+  }
+
+  #services .group {
+    padding: 20px !important;
+  }
+}
+
+/* Tablet */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  #services .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  #services h2 {
+    font-size: 2.2rem !important;
+  }
+}
+
+/* Desktop grid handled by Tailwind (3 columns) */
+
+
+
+
+/* =====================================================
+   PRICING PAGE GLOBAL FIX
+===================================================== */
+
+#pricingpagedetails {
+  padding-bottom: 0 !important;
+}
+
+#pricingpagedetails section {
+  padding-bottom: 60px;
+}
+
+
+/* =====================================================
+   PRICING GRID RESPONSIVE
+===================================================== */
+
+/* ---------------- MOBILE (2 Columns) ---------------- */
+@media (max-width: 639px) {
+
+  #pricingpagedetails h2 {
+    font-size: 1.8rem !important;
+    line-height: 1.3;
+  }
+
+  #pricingpagedetails p {
+    font-size: 0.95rem;
+  }
+
+  /* 🔥 2 columns on mobile */
+  #pricingpagedetails .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  /* Reduce card padding */
+  #pricingpagedetails .rounded-xl {
+    padding: 16px !important;
+  }
+
+  /* Toggle alignment */
+  #pricingpagedetails .flex.justify-center {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+
+/* ---------------- TABLET (2 Columns) ---------------- */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  #pricingpagedetails .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  #pricingpagedetails h2 {
+    font-size: 2.2rem !important;
+  }
+}
+
+
+/* ---------------- DESKTOP ---------------- */
+/* 3 columns already handled by lg:grid-cols-3 */
+
+
+/* =====================================================
+   WHAT'S INCLUDED RESPONSIVE
+===================================================== */
+
+/* Remove extra gap */
+#pricingpagedetails section:last-child {
+  padding-bottom: 60px !important;
+}
+
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 639px) {
+
+  /* Feature boxes 2 per row */
+  #pricingpagedetails .flex.justify-between {
+    justify-content: center !important;
+    gap: 14px !important;
+  }
+
+  #pricingpagedetails .min-w-\[220px\] {
+    flex: 0 0 calc(50% - 10px);
+    min-width: unset !important;
+  }
+
+  /* Slight padding reduce */
+  #pricingpagedetails .flex.justify-between > div {
+    padding: 16px !important;
+  }
+}
+
+
+/* ---------------- TABLET ---------------- */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  #pricingpagedetails .min-w-\[220px\] {
+    flex: 0 0 calc(33.33% - 12px);
+  }
+
+  #pricingpagedetails .flex.justify-between {
+    justify-content: center !important;
+  }
+}
+
+
+/* ---------------- LARGE DESKTOP ---------------- */
+@media (min-width: 1280px) {
+
+  #pricingpagedetails h2 {
+    font-size: 2.5rem;
+  }
+}
+
+
+
+
+
+/* =====================================================
+   BLOG SECTION GLOBAL FIX
+===================================================== */
+
+#blogpagedetails {
+  padding-bottom: 0 !important;
+}
+
+#blogpagedetails section {
+  padding-top: 70px !important;
+  padding-bottom: 70px !important;
+}
+
+
+/* =====================================================
+   BLOG HEADER RESPONSIVE
+===================================================== */
+
+/* Mobile */
+@media (max-width: 639px) {
+
+  #blog > div:first-child {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  #blog h2 {
+    font-size: 2.2rem !important;
+    line-height: 1.2;
+  }
+
+  #blog p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  #blog h2 {
+    font-size: 3rem !important;
+  }
+}
+
+
+/* =====================================================
+   BLOG GRID RESPONSIVE
+===================================================== */
+
+/* Mobile → 2 cards */
+@media (max-width: 639px) {
+
+  #blog .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  #blog img {
+    height: 140px !important;
+  }
+
+  #blog .p-6 {
+    padding: 14px !important;
+  }
+
+  #blog h3 {
+    font-size: 0.9rem !important;
+  }
+}
+
+
+/* Tablet → 2 cards */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  #blog .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+
+/* Desktop → 3 cards (Tailwind md:grid-cols-3 handles it) */
+
+
+/* =====================================================
+   BLOG DETAIL PAGE RESPONSIVE
+===================================================== */
+
+/* Mobile Detail */
+@media (max-width: 639px) {
+
+  #blogpagedetails section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+
+  #blogpagedetails h1 {
+    font-size: 1.8rem !important;
+    line-height: 1.3;
+  }
+
+  #blogpagedetails .flex.items-center {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  #blogpagedetails img.h-96 {
+    height: 220px !important;
+  }
+
+  #blogpagedetails .text-lg {
+    font-size: 0.95rem !important;
+  }
+
+  #blogpagedetails .px-6 {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  #blogpagedetails h2 {
+    font-size: 1.3rem !important;
+  }
+
+  #blogpagedetails ul {
+    padding-left: 20px !important;
+  }
+
+  #blogpagedetails button {
+    width: 100%;
+    max-width: 260px;
+  }
+}
+
+
+/* Tablet Detail */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  #blogpagedetails h1 {
+    font-size: 2.4rem !important;
+  }
+
+  #blogpagedetails img.h-96 {
+    height: 300px !important;
+  }
+
+  #blogpagedetails .text-lg {
+    font-size: 1rem !important;
+  }
+}
+
+
+/* Laptop */
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  #blogpagedetails h1 {
+    font-size: 2.8rem !important;
+  }
+}
+
+
+/* Large Desktop */
+@media (min-width: 1280px) {
+
+  #blogpagedetails h1 {
+    font-size: 3rem !important;
+  }
+
+  #blogpagedetails img.h-96 {
+    height: 380px !important;
+  }
+}
+
+
+
+/* =====================================================
+   TESTIMONIAL SECTION RESPONSIVE
+===================================================== */
+
+/* ---------------- MOBILE (0 – 639px) ---------------- */
+@media (max-width: 639px) {
+
+  #testimonalpagedetails {
+    padding-top: 16px !important;
+  }
+
+  #testimonalpagedetails h2 {
+    font-size: 1.9rem !important;
+    line-height: 1.3 !important;
+  }
+
+  #testimonalpagedetails p {
+    font-size: 0.95rem !important;
+  }
+
+  /* Reduce section padding */
+  #testimonalpagedetails .max-w-7xl {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Make cards full width */
+  #sliderTrack > div {
+    width: 100% !important;
+  }
+
+  /* Card padding reduce slightly */
+  #sliderTrack .bg-slate-800 {
+    padding: 20px !important;
+  }
+
+  /* Arrows inside properly */
+  #testimonalpagedetails button {
+    left: 10px !important;
+    right: 10px !important;
+    padding: 10px !important;
+  }
+
+  #dots {
+    margin-top: 24px !important;
+  }
+}
+
+
+/* ---------------- TABLET (640 – 1023px) ---------------- */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  #testimonalpagedetails h2 {
+    font-size: 2.4rem !important;
+  }
+
+  /* Two cards visible */
+  #sliderTrack > div {
+    width: 50% !important;
+  }
+
+  #sliderTrack .bg-slate-800 {
+    padding: 24px !important;
+  }
+
+  #testimonalpagedetails button {
+    padding: 12px !important;
+  }
+}
+
+
+/* ---------------- LAPTOP (1024 – 1279px) ---------------- */
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  #sliderTrack > div {
+    width: 50% !important;
+  }
+
+  #testimonalpagedetails h2 {
+    font-size: 2.8rem !important;
+  }
+
+}
+
+
+/* ---------------- DESKTOP (1280px+) ---------------- */
+@media (min-width: 1280px) {
+
+  /* Keep 2 cards per view */
+  #sliderTrack > div {
+    width: 50% !important;
+  }
+
+  #testimonalpagedetails h2 {
+    font-size: 3rem !important;
+  }
+
+  /* Slightly bigger cards */
+  #sliderTrack .bg-slate-800 {
+    padding: 32px !important;
+  }
+
+}
+
+
+
+/* =====================================================
+   INTEGRATIONS SECTION RESPONSIVE
+===================================================== */
+
+/* ---------------- MOBILE (0 – 639px) ---------------- */
+@media (max-width: 639px) {
+
+  #integrationpagedetails {
+    padding-top: 16px !important;
+  }
+
+  /* Header */
+  #integrationpagedetails h2 {
+    font-size: 1.9rem !important;
+    line-height: 1.3 !important;
+  }
+
+  #integrationpagedetails > section {
+    padding-top: 30px !important;
+    padding-bottom: 40px !important;
+  }
+
+  #integrationpagedetails .max-w-7xl {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  #integrationpagedetails p {
+    font-size: 0.9rem !important;
+  }
+
+  /* 2 columns on mobile */
+  #integrationpagedetails .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  /* Card adjustments */
+  #integrationpagedetails .bg-gray-800 {
+    padding: 16px !important;
+  }
+
+  #integrationpagedetails h3 {
+    font-size: 1.1rem !important;
+  }
+
+  #integrationpagedetails span {
+    font-size: 0.65rem !important;
+  }
+}
+
+
+/* ---------------- TABLET (640 – 1023px) ---------------- */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  #integrationpagedetails h2 {
+    font-size: 2.4rem !important;
+  }
+
+  #integrationpagedetails .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
+  }
+
+  #integrationpagedetails .bg-gray-800 {
+    padding: 22px !important;
+  }
+}
+
+
+/* ---------------- LAPTOP (1024 – 1279px) ---------------- */
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  #integrationpagedetails h2 {
+    font-size: 2.8rem !important;
+  }
+
+  #integrationpagedetails .grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 28px !important;
+  }
+}
+
+
+/* ---------------- DESKTOP (1280px+) ---------------- */
+@media (min-width: 1280px) {
+
+  #integrationpagedetails h2 {
+    font-size: 3rem !important;
+  }
+
+  #integrationpagedetails .grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 32px !important;
+  }
+
+  #integrationpagedetails .bg-gray-800 {
+    padding: 28px !important;
+  }
+}
+
+
+/* =====================================================
+   FAQ SECTION RESPONSIVE
+===================================================== */
+
+/* ---------- MOBILE (0 – 639px) ---------- */
+@media (max-width: 639px) {
+
+  #faqpagedetails {
+    padding-top: 16px !important;
+  }
+
+  #faqpagedetails > section {
+    padding-top: 30px !important;
+    padding-bottom: 40px !important;
+  }
+
+  /* Header */
+  #faqpagedetails h2 {
+    font-size: 1.9rem !important;
+    line-height: 1.3 !important;
+  }
+
+  #faqpagedetails p {
+    font-size: 0.9rem !important;
+  }
+
+  /* Controls stack properly */
+  #faqpagedetails .flex.flex-col {
+    gap: 20px !important;
+  }
+
+  /* Category buttons */
+  .category-btn {
+    font-size: 0.8rem !important;
+    padding: 6px 14px !important;
+  }
+
+  /* Search full width */
+  #searchInput {
+    width: 100% !important;
+    padding: 12px 18px !important;
+  }
+
+  /* FAQ card */
+  .faq-item {
+    padding: 18px !important;
+    border-radius: 18px !important;
+  }
+
+  .question-text {
+    font-size: 0.95rem !important;
+  }
+
+  .answer-text {
+    font-size: 0.9rem !important;
+  }
+
+  .arrow {
+    font-size: 24px !important;
+  }
+}
+
+
+/* ---------- TABLET (640 – 1023px) ---------- */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  #faqpagedetails h2 {
+    font-size: 2.4rem !important;
+  }
+
+  #searchInput {
+    width: 280px !important;
+  }
+
+  .faq-item {
+    padding: 22px !important;
+  }
+
+  .question-text {
+    font-size: 1rem !important;
+  }
+}
+
+
+/* ---------- LAPTOP (1024 – 1279px) ---------- */
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  #faqpagedetails h2 {
+    font-size: 2.8rem !important;
+  }
+
+  .faq-item {
+    padding: 24px !important;
+  }
+}
+
+
+/* ---------- DESKTOP (1280px+) ---------- */
+@media (min-width: 1280px) {
+
+  #faqpagedetails h2 {
+    font-size: 3rem !important;
+  }
+
+  .faq-item {
+    padding: 28px !important;
+  }
+}
+
+/* =====================================================
+   CONTACT PAGE – FULL RESPONSIVE
+===================================================== */
+
+
+/* ================= MOBILE (0 – 639px) ================= */
+@media (max-width: 639px) {
+
+  /* Top spacing */
+  #contactpagedetails {
+    padding-top: 16px !important;
+  }
+
+  /* Reduce side padding */
+  #contactpagedetails > section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Headings resize */
+  #contactpagedetails h2 {
+    font-size: 1.8rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Main contact layout stack */
+  #contactpagedetails .flex.flex-col.lg\:flex-row {
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+
+  /* Office image smaller */
+  #contactpagedetails img.h-80 {
+    height: 220px !important;
+  }
+
+  /* Office cards 1 column */
+  #contactpagedetails .md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Form padding reduce */
+  #contactpagedetails .lg\:w-2\/5 {
+    padding: 22px !important;
+  }
+
+  /* First & Last name stack */
+  #contactForm .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Phone select + input stack */
+  #contactForm .flex.gap-2 {
+    flex-direction: column !important;
+  }
+
+  #countrySelect,
+  #phoneInput {
+    width: 100% !important;
+  }
+
+  /* Social icons */
+  #contactpagedetails .mt-6 {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+
+  #contactpagedetails .w-12 {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  /* Map section stack */
+  #contactpagedetails .lg\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  #contactpagedetails .lg\:col-span-2 {
+    height: 320px !important;
+  }
+
+  #contactpagedetails iframe {
+    height: 320px !important;
+  }
+
+  /* Remove side rounded on mobile */
+  #contactpagedetails .rounded-r-3xl {
+    border-radius: 0 0 24px 24px !important;
+  }
+
+  #contactpagedetails .border-l {
+    border-left: none !important;
+    border-top: 1px solid #374151 !important;
+  }
+}
+
+
+/* ================= TABLET (640 – 1023px) ================= */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  #contactpagedetails h2 {
+    font-size: 2.3rem !important;
+  }
+
+  /* Still stacked layout */
+  #contactpagedetails .flex.flex-col.lg\:flex-row {
+    flex-direction: column !important;
+  }
+
+  /* Office grid 2 columns */
+  #contactpagedetails .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  #contactpagedetails iframe {
+    height: 400px !important;
+  }
+
+  #contactpagedetails .lg\:col-span-2 {
+    height: 400px !important;
+  }
+}
+
+
+/* ================= LAPTOP (1024 – 1279px) ================= */
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  #contactpagedetails h2 {
+    font-size: 2.8rem !important;
+  }
+
+  #contactpagedetails iframe {
+    height: 450px !important;
+  }
+
+  #contactpagedetails .lg\:col-span-2 {
+    height: 450px !important;
+  }
+}
+
+
+/* ================= DESKTOP (1280px+) ================= */
+@media (min-width: 1280px) {
+
+  #contactpagedetails h2 {
+    font-size: 3rem !important;
+  }
+
+  #contactpagedetails iframe {
+    height: 500px !important;
+  }
+
+  #contactpagedetails .lg\:col-span-2 {
+    height: 500px !important;
+  }
+}
+
+
+
+
+
+/* =====================================================
+   ABOUT PAGE RESPONSIVE
+===================================================== */
+
+/* ================= MOBILE (0 – 639px) ================= */
+@media (max-width: 639px) {
+
+  #aboutpagedetails {
+    padding-top: 16px !important;
+  }
+
+  #aboutpagedetails section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Headings smaller */
+  #aboutpagedetails h2 {
+    font-size: 1.8rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Stats grid → 1 column */
+  #aboutpagedetails .md\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Mission & Values stack */
+  #aboutpagedetails .md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Reduce gap */
+  #aboutpagedetails .gap-16 {
+    gap: 32px !important;
+  }
+
+  /* Image full width */
+  #aboutpagedetails img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Why Choose cards → 1 column */
+  #aboutpagedetails .grid.md\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Team → 2 columns */
+  #aboutpagedetails .grid.grid-cols-2.md\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  /* Reduce large paddings */
+  #aboutpagedetails .p-8 {
+    padding: 20px !important;
+  }
+
+}
+
+
+/* ================= TABLET (640 – 1023px) ================= */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  #aboutpagedetails h2 {
+    font-size: 2.4rem !important;
+  }
+
+  /* Stats → 2 columns */
+  #aboutpagedetails .md\:grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Mission section stacked */
+  #aboutpagedetails .md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Why Choose → 2 columns */
+  #aboutpagedetails .grid.md\:grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Team → 3 columns */
+  #aboutpagedetails .grid.grid-cols-2.md\:grid-cols-4 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+}
+
+
+/* ================= LAPTOP (1024 – 1279px) ================= */
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  #aboutpagedetails h2 {
+    font-size: 2.8rem !important;
+  }
+
+  /* Mission grid normal 2 column */
+  #aboutpagedetails .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Why Choose keep 3 columns */
+  #aboutpagedetails .grid.md\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  /* Team → 4 columns */
+  #aboutpagedetails .grid.grid-cols-2.md\:grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+}
+
+
+/* ================= DESKTOP (1280px+) ================= */
+@media (min-width: 1280px) {
+
+  #aboutpagedetails h2 {
+    font-size: 3rem !important;
+  }
+
+}
+
+
+
+/* =====================================================
+   FOOTER – FULL RESPONSIVE
+===================================================== */
+
+
+/* ================= MOBILE (0 – 639px) ================= */
+@media (max-width: 639px) {
+
+  footer {
+    text-align: center;
+  }
+
+  /* Reduce padding */
+  footer .px-6 {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Footer grid → single column */
+  footer .grid-cols-1 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Brand section center */
+  footer .flex.items-center {
+    justify-content: center !important;
+  }
+
+  /* Logo smaller */
+  footer img.h-20 {
+    height: 60px !important;
+  }
+
+  /* Social icons center */
+  footer .flex.gap-4 {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+
+  footer .w-12 {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  /* Quick links 1 column */
+  footer .grid.grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Subscribe form stack */
+  footer .flex.w-full {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  footer input {
+    border-radius: 10px !important;
+  }
+
+  footer button {
+    border-radius: 10px !important;
+  }
+
+  /* Privacy / Terms / Icons stack */
+  footer .md\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+
+  /* Trust icons wrap nicely */
+  footer .justify-center {
+    flex-wrap: wrap !important;
+    gap: 24px !important;
+  }
+
+  /* App download stack */
+  footer .sm\:flex-row {
+    flex-direction: column !important;
+  }
+
+  footer .h-14 {
+    height: 48px !important;
+  }
+
+  /* Reduce headings size */
+  footer h1 {
+    font-size: 1.8rem !important;
+  }
+
+  footer h3 {
+    font-size: 1.2rem !important;
+  }
+}
+
+
+/* ================= TABLET (640 – 1023px) ================= */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  /* Footer grid → 2 columns */
+  footer .lg\:grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Quick links 2 columns still */
+  footer .grid.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Privacy section stack */
+  footer .md\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  footer img.h-20 {
+    height: 70px !important;
+  }
+
+  footer .h-14 {
+    height: 52px !important;
+  }
+}
+
+
+/* ================= LAPTOP (1024 – 1279px) ================= */
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  footer .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  footer .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  footer .h-14 {
+    height: 56px !important;
+  }
+}
+
+ 
+/* ================= DESKTOP (1280px+) ================= */
+@media (min-width: 1280px) {
+
+  footer .h-14 {
+    height: 60px !important;
+  }
+
+  footer h1 {
+    font-size: 2.2rem !important;
+  }
+
+  footer h3 {
+    font-size: 1.3rem !important;
+  }
+}
